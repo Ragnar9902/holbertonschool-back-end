@@ -21,14 +21,10 @@ if __name__ == "__main__":
             task_completed += 1
         task_total += 1
 
-    print("Employee {} is done with tasks({}/{}):"
-          .format(user_name, task_completed, task_total))
-
     task_compl_list = []
 
     for task in todos.json():
         if task["completed"] is True:
-            print("\t {}".format(task["title"]))
             csvcolums = [uid, user_name, task["completed"], task["title"]]
             task_compl_list.append(csvcolums)
 
