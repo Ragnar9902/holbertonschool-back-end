@@ -14,6 +14,7 @@ if __name__ == "__main__":
 
     task_completed = 0
     task_total = 0
+    user_name = usr_inf.json()["name"]
 
     for task in todos.json():
         if task["completed"] is True:
@@ -21,15 +22,14 @@ if __name__ == "__main__":
         task_total += 1
 
     print("Employee {} is done with tasks({}/{}):"
-          .format(usr_inf.json()["name"], task_completed, task_total))
+          .format(user_name, task_completed, task_total))
 
     task_compl_list = []
 
     for task in todos.json():
         if task["completed"] is True:
             print("\t {}".format(task["title"]))
-            csvcolums = [usr_inf.json()["id"], usr_inf.json()["name"]
-                         , task["completed"], task["title"]]
+            csvcolums = [uid, user_name, task["completed"], task["title"]]
             task_compl_list.append(csvcolums)
 
     csvheaders = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
