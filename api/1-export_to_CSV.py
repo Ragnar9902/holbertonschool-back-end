@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
     csvheaders = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
 
-    with open("USER_ID.csv", 'w') as f:
+    with open("{}.csv".format(uid), 'w') as f:
         CsvWri = csv.writer(f)
         CsvWri.writerow(csvheaders)
         CsvWri.writerows(task_compl_list)
