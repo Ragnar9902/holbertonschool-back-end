@@ -24,9 +24,8 @@ if __name__ == "__main__":
     task_compl_list = []
 
     for task in todos.json():
-        if task["completed"] is True:
-            csvcolums = [uid, user_name, task["completed"], task["title"]]
-            task_compl_list.append(csvcolums)
+        csvcolums = [uid, user_name, task["completed"], task["title"]]
+        task_compl_list.append(csvcolums)
 
     csvheaders = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
 

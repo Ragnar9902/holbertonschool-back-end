@@ -1,45 +1,37 @@
 #!/usr/bin/python3
 """
-Checks student output for returning info from REST API
+Check student .CSV output of user information
 """
 
+import csv
 import requests
 import sys
 
-users_url = "https://jsonplaceholder.typicode.com/users"
+users_url = "https://jsonplaceholder.typicode.com/users?id="
 todos_url = "https://jsonplaceholder.typicode.com/todos"
 
 
-def first_line_formatting(id):
-    """ Check student output formatting """
+def user_info(id):
+    """ Check user information """
 
-    todos_count = 0
-    todos_done = 0
-
-    resp = requests.get(todos_url).json()
-    for i in resp:
+    total_tasks = 0
+    response = requests.get(todos_url).json()
+    for i in response:
         if i['userId'] == id:
-            todos_count += 1
-        if (i['completed'] and i['userId'] == id):
-            todos_done += 1
+            total_tasks += 1
 
-    resp = requests.get(users_url).json()
+    print(total_tasks)
+    num_lines = 0
+    with open(str(id) + ".csv", 'r') as f:
+        for line in f:
+            if not line == '\n':
+                num_lines += 1
 
-    name = None
-    for i in resp:
-        if i['id'] == id:
-            name = i['name']
-    
-    filename = 'student_output'
-#    with open(filename, 'r') as f:
-#        first = f.readline().strip()
-
-    output = "Employee {} is done with tasks({}/{}):".format(name, todos_done, todos_count)
-    #print("First line formatting: OK")
-    print(output)
-    #else:
-    #    print("First line formatting: Incorrect")
+    if total_tasks == num_lines:
+        print("Number of tasks in CSV: OK")
+    else:
+        print("Number of tasks in CSV: Incorrect")
 
 
 if __name__ == "__main__":
-    first_line_formatting(int(sys.argv[1]))
+    user_info(int(sys.argv[1]))
