@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """script that get data of a api"""
 
+import csv
 import requests
 from sys import argv
-import csv
 
 if __name__ == "__main__":
     uid = argv[1]
