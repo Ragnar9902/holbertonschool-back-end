@@ -12,14 +12,14 @@ if __name__ == "__main__":
     users_dict = defaultdict(list)
 
     for item in todos.json():
-        uid = item['id']
+        uid = item['userId']
         url = users_url + str(item['userId'])
         usr_resp = requests.get(url).json()
         user_name = usr_resp[0]["username"]
 
         all_item = {"username": user_name,
-                    "task": item["title"],
-                    "completed": item["completed"]}
+                    "completed": item["completed"],
+                    "task": item["title"]}
 
         users_dict["{}".format(uid)].append(all_item)
 
