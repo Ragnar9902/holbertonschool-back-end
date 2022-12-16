@@ -16,10 +16,10 @@ if __name__ == "__main__":
         url = users_url + str(item['userId'])
         usr_resp = requests.get(url).json()
         user_name = usr_resp[0]["username"]
-        
+
         all_item = {"username": user_name,
-                     "task": item["title"],
-                     "completed": item["completed"]}
+                    "task": item["title"],
+                    "completed": item["completed"]}
 
         users_dict["{}".format(uid)].append(all_item)
 
