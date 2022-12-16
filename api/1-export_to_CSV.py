@@ -6,7 +6,7 @@ import requests
 from sys import argv
 
 if __name__ == "__main__":
-    uid = argv[1]
+    uid = int(argv[1])
     todos = requests.get("https://jsonplaceholder.typicode.com/users/{}/todos"
                          .format(uid))
     usr_inf = requests.get("https://jsonplaceholder.typicode.com/users/{}"
@@ -24,12 +24,12 @@ if __name__ == "__main__":
     task_compl_list = []
 
     for task in todos.json():
-        csvcolums = [str(uid), str(user_name), str(task["completed"]), str(task["title"])]
+        csvcolums = [uid, user_name, str(task["completed"]), str(task["title"])]
         task_compl_list.append(csvcolums)
 
     csvheaders = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
 
     with open("{}.csv".format(uid), 'w') as f:
-        CsvWri = csv.writer(f)
+        CsvWri = csv.writer(f, quoting=csv.QUOTE_ALL)
         #CsvWri.writerow(csvheaders)
         CsvWri.writerows(task_compl_list)
