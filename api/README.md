@@ -38,5 +38,5 @@ pandas for working with CSV files.
 
 json for working with JSON files.
 
-License
+# License
 This project is licensed under the MIT License. See the LICENSE file for details.
