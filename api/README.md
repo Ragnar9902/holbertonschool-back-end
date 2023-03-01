@@ -1,4 +1,4 @@
-#Python API, Web Scraping, and File Manipulation
+# Python API, Web Scraping, and File Manipulation
 This project showcases my expertise in working with APIs, web scraping, and file manipulation using Python. It includes the following files:
 
 0-gather_data_from_an_API.py: A Python script that gathers data from a REST API and displays information about an employee's todo list progress.
