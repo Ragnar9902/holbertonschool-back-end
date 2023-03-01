@@ -31,8 +31,11 @@ Check the generated files for the output.
 This project uses the following dependencies:
 
 requests for working with REST APIs.
+
 beautifulsoup4 for web scraping.
+
 pandas for working with CSV files.
+
 json for working with JSON files.
 
 License
