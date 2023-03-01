@@ -17,8 +17,14 @@ This project showcases my expertise in working with APIs, web scraping, and file
 
 # How to Use
 Clone the repository to your local machine.
-Install the required dependencies using pip install -r requirements.txt.
-Run any of the scripts using python <script name>.
+Install the required dependencies using 
+```
+pip install -r requirements.txt.
+```
+Run any of the scripts using 
+```
+python <script name>.
+```
 Check the generated files for the output.
 
 # Dependencies
